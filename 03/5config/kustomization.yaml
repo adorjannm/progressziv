@@ -1,0 +1,8 @@
+resources:
+  - site1.yaml
+  - site2.yaml
+  - site3.yaml
+  - site4.yaml
+  - site5.yaml
+  - nginx-conf.yaml
+  - service.yaml
