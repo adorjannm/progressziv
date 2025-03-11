@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: page-content
+  labels:
+    app: myapplication
+data:
+  index.html: |
+    <html>
+    <head>
+      <title>My custom site</title>
+    </head>
+    <body>
+      <h1>This is my custom site in nginx</h1>
+    </body>
+    </html>
