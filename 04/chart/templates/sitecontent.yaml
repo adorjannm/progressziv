@@ -1,0 +1,20 @@
+{{- range .Values.sites}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: page-content-{{ .id }}
+  labels:
+    app: {{ $.Chart.Name }}
+    site: {{ .name }}
+data:
+  index.html: |
+    <html>
+    <head>
+      <title>{{ .name }}</title>
+    </head>
+    <body>
+        {{ .content | nindent 6}}
+    </body>
+    </html>
+---
+{{- end}}

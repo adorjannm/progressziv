@@ -1,0 +1,41 @@
+{{- range .Values.sites }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Chart.Name }}-{{ .id }}
+  labels:
+    app: {{ $.Chart.Name }}-deployment
+    site: {{ .name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $.Chart.Name }}-deployment
+      site: {{ .name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $.Chart.Name }}-deployment
+        site: {{ .name }}
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: index
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: my.conf
+      volumes:
+        - name: index
+          configMap:
+            name: page-content-{{ .id }}
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+---
+{{- end }}
