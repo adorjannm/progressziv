@@ -7,7 +7,7 @@ metadata:
     app: {{ $.Chart.Name }}-deployment
     site: {{ .name }}
 spec:
-  replicas: 1
+  replicas: {{ $.Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ $.Chart.Name }}-deployment
@@ -22,7 +22,7 @@ spec:
         - name: nginx
           image: nginx
           ports:
-            - containerPort: 80
+            - containerPort: {{ $.Values.internalPort }}
           volumeMounts:
             - name: index
               mountPath: /usr/share/nginx/html/index.html
