@@ -1,0 +1,21 @@
+sites:
+  - name: site-1
+    id: 1
+    content: |
+      <h1>Site 1</h1>
+  - name: site-2
+    id: 2
+    content: |
+      <h1>Site 2</h1>
+  - name: site-3
+    id: 3
+    content: |
+      <h1>Site 3</h1>
+  - name: site-4
+    id: 4
+    content: |
+      <h1>Site 4</h1>
+  - name: site-5
+    id: 5
+    content: |
+      <h1>Site 5</h1>
