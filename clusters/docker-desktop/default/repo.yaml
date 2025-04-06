@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: 5-site-repo
+  namespace: default
+spec:
+  interval: 1m
+  url: https://raw.githubusercontent.com/adorjannm/progressziv/refs/heads/master/04
