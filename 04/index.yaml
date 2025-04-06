@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  static-site:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-06T08:55:40.796960771+02:00"
+    description: A static-site that hosts multiple sites with different content behind
+      a single LoadBalancer.
+    digest: 65265d539a08d41f85ad466e0fdcaa7d4416b6b91dd8a26d24fce8b1dbbf86e4
+    name: static-site
+    type: application
+    urls:
+    - static-site-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-04-06T08:55:40.796541073+02:00"
