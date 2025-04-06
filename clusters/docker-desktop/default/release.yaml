@@ -1,0 +1,41 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: 5-site-release
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: static-site
+      sourceRef:
+        kind: HelmRepository
+        name: 5-site-repo
+      interval: 1m
+  values:
+    internalPort: 80
+    externalPort: 80
+
+    replicas: 2
+
+    sites:
+      - name: site-1
+        id: 1
+        content: |
+          <h1>Site 1</h1>
+      - name: site-2
+        id: 2
+        content: |
+          <h1>Site 2</h1>
+      - name: site-3
+        id: 3
+        content: |
+          <h1>Site 3</h1>
+      - name: site-4
+        id: 4
+        content: |
+          <h1>Site 4</h1>
+      - name: site-5
+        id: 5
+        content: |
+          <h1>Site 5</h1>
