@@ -39,3 +39,7 @@ spec:
         id: 5
         content: |
           <h1>Site 5</h1>
+      - name: site-6
+        id: 6
+        content: |
+          <h1>Site 6</h1>
