@@ -1,0 +1,34 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: podinfo
+  namespace: test
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: podinfo
+  service:
+    port: 9898
+    targetPort: 9898
+  analysis:
+    interval: 1m
+    threshold: 10
+    metrics:
+      - name: request-success-rate
+        thresholdRange:
+          min: 99
+        interval: 30s
+      - name: request-duration
+        thresholdRange:
+          max: 500
+        interval: 30s
+  trafficRouting:
+    istio:
+      gateway: local-gateway
+      virtualService:
+        name: podinfo
+        hosts:
+          - "localhost"
+      destinationRule:
+        name: podinfo
