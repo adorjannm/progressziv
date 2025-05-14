@@ -4,6 +4,7 @@ metadata:
   name: podinfo
   labels:
     app: podinfo
+  namespace: test
 spec:
   minReadySeconds: 5
   revisionHistoryLimit: 5
