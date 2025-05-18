@@ -14,7 +14,7 @@ spec:
   chart:
     spec:
       chart: flagger
-      version: 1.x # update Flagger to the latest minor version
+      version: 1.41
       interval: 6h # scan for new versions every six hours
       sourceRef:
         kind: HelmRepository
@@ -24,5 +24,3 @@ spec:
   values:
     nodeSelector:
       kubernetes.io/os: linux
-    loadtester:
-      enabled: true
