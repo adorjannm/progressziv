@@ -5,3 +5,4 @@ resources:
   - gotk-sync.yaml
   - istio.yaml
   - test-kustomization.yaml
+  - flagger-loadtester.yaml
